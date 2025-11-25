@@ -1,0 +1,80 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/modules-system/prisma/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Comments {
+  id          Int       @id @default(autoincrement())
+  userId      Int
+  pictureId   Int
+  content     String?   @db.Text
+  commentDate DateTime  @default(now()) @db.Timestamp(0)
+  deletedBy   Int       @default(0)
+  isDeleted   Boolean   @default(false)
+  deletedAt   DateTime? @db.Timestamp(0)
+  createdAt   DateTime  @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime  @default(now()) @db.Timestamp(0)
+  Users       Users     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Comments_ibfk_1")
+  Pictures    Pictures  @relation(fields: [pictureId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Comments_ibfk_2")
+
+  @@index([pictureId], map: "pictureId")
+  @@index([userId], map: "userId")
+}
+
+model Pictures {
+  id           Int            @id @default(autoincrement())
+  imageName    String?        @db.VarChar(255)
+  path         String?        @db.VarChar(255)
+  desc         String?        @db.VarChar(255)
+  userId       Int
+  deletedBy    Int            @default(0)
+  isDeleted    Boolean        @default(false)
+  deletedAt    DateTime?      @db.Timestamp(0)
+  createdAt    DateTime       @default(now()) @db.Timestamp(0)
+  updatedAt    DateTime       @default(now()) @db.Timestamp(0)
+  Comments     Comments[]
+  Users        Users          @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Pictures_ibfk_1")
+  UserPictures UserPictures[]
+
+  @@index([userId], map: "userId")
+}
+
+model UserPictures {
+  id           Int       @id @default(autoincrement())
+  userId       Int
+  pictureId    Int
+  creationDate DateTime  @default(now()) @db.Timestamp(0)
+  deletedBy    Int       @default(0)
+  isDeleted    Boolean   @default(false)
+  deletedAt    DateTime? @db.Timestamp(0)
+  createdAt    DateTime  @default(now()) @db.Timestamp(0)
+  updatedAt    DateTime  @default(now()) @db.Timestamp(0)
+  Users        Users     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "UserPictures_ibfk_1")
+  Pictures     Pictures  @relation(fields: [pictureId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "UserPictures_ibfk_2")
+
+  @@index([pictureId], map: "pictureId")
+  @@index([userId], map: "userId")
+}
+
+model Users {
+  id           Int            @id @default(autoincrement())
+  email        String         @unique(map: "email") @db.VarChar(255)
+  password     String?        @db.VarChar(255)
+  fullName     String?        @db.VarChar(255)
+  age          Int?
+  avatar       String?        @db.VarChar(255)
+  deletedBy    Int            @default(0)
+  isDeleted    Boolean        @default(false)
+  deletedAt    DateTime?      @db.Timestamp(0)
+  createdAt    DateTime       @default(now()) @db.Timestamp(0)
+  updatedAt    DateTime       @default(now()) @db.Timestamp(0)
+  Comments     Comments[]
+  Pictures     Pictures[]
+  UserPictures UserPictures[]
+}
