@@ -29,8 +29,9 @@ model Comments {
 
 model Pictures {
   id           Int            @id @default(autoincrement())
-  imageName    String?        @db.VarChar(255)
-  path         String?        @db.VarChar(255)
+  title        String?        @db.VarChar(255)
+  href         String?        @db.VarChar(255)
+  fileName     String?        @db.VarChar(255)
   desc         String?        @db.VarChar(255)
   userId       Int
   deletedBy    Int            @default(0)
@@ -69,6 +70,8 @@ model Users {
   fullName     String?        @db.VarChar(255)
   age          Int?
   avatar       String?        @db.VarChar(255)
+  facebookId   String?        @unique(map: "facebookId") @db.VarChar(255)
+  googleId     String?        @unique(map: "googleId") @db.VarChar(255)
   deletedBy    Int            @default(0)
   isDeleted    Boolean        @default(false)
   deletedAt    DateTime?      @db.Timestamp(0)

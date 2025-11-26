@@ -40,8 +40,9 @@ export type PicturesSumAggregateOutputType = {
 
 export type PicturesMinAggregateOutputType = {
   id: number | null
-  imageName: string | null
-  path: string | null
+  title: string | null
+  href: string | null
+  fileName: string | null
   desc: string | null
   userId: number | null
   deletedBy: number | null
@@ -53,8 +54,9 @@ export type PicturesMinAggregateOutputType = {
 
 export type PicturesMaxAggregateOutputType = {
   id: number | null
-  imageName: string | null
-  path: string | null
+  title: string | null
+  href: string | null
+  fileName: string | null
   desc: string | null
   userId: number | null
   deletedBy: number | null
@@ -66,8 +68,9 @@ export type PicturesMaxAggregateOutputType = {
 
 export type PicturesCountAggregateOutputType = {
   id: number
-  imageName: number
-  path: number
+  title: number
+  href: number
+  fileName: number
   desc: number
   userId: number
   deletedBy: number
@@ -93,8 +96,9 @@ export type PicturesSumAggregateInputType = {
 
 export type PicturesMinAggregateInputType = {
   id?: true
-  imageName?: true
-  path?: true
+  title?: true
+  href?: true
+  fileName?: true
   desc?: true
   userId?: true
   deletedBy?: true
@@ -106,8 +110,9 @@ export type PicturesMinAggregateInputType = {
 
 export type PicturesMaxAggregateInputType = {
   id?: true
-  imageName?: true
-  path?: true
+  title?: true
+  href?: true
+  fileName?: true
   desc?: true
   userId?: true
   deletedBy?: true
@@ -119,8 +124,9 @@ export type PicturesMaxAggregateInputType = {
 
 export type PicturesCountAggregateInputType = {
   id?: true
-  imageName?: true
-  path?: true
+  title?: true
+  href?: true
+  fileName?: true
   desc?: true
   userId?: true
   deletedBy?: true
@@ -219,8 +225,9 @@ export type PicturesGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
 
 export type PicturesGroupByOutputType = {
   id: number
-  imageName: string | null
-  path: string | null
+  title: string | null
+  href: string | null
+  fileName: string | null
   desc: string | null
   userId: number
   deletedBy: number
@@ -255,8 +262,9 @@ export type PicturesWhereInput = {
   OR?: Prisma.PicturesWhereInput[]
   NOT?: Prisma.PicturesWhereInput | Prisma.PicturesWhereInput[]
   id?: Prisma.IntFilter<"Pictures"> | number
-  imageName?: Prisma.StringNullableFilter<"Pictures"> | string | null
-  path?: Prisma.StringNullableFilter<"Pictures"> | string | null
+  title?: Prisma.StringNullableFilter<"Pictures"> | string | null
+  href?: Prisma.StringNullableFilter<"Pictures"> | string | null
+  fileName?: Prisma.StringNullableFilter<"Pictures"> | string | null
   desc?: Prisma.StringNullableFilter<"Pictures"> | string | null
   userId?: Prisma.IntFilter<"Pictures"> | number
   deletedBy?: Prisma.IntFilter<"Pictures"> | number
@@ -271,8 +279,9 @@ export type PicturesWhereInput = {
 
 export type PicturesOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  imageName?: Prisma.SortOrderInput | Prisma.SortOrder
-  path?: Prisma.SortOrderInput | Prisma.SortOrder
+  title?: Prisma.SortOrderInput | Prisma.SortOrder
+  href?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileName?: Prisma.SortOrderInput | Prisma.SortOrder
   desc?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
@@ -291,8 +300,9 @@ export type PicturesWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.PicturesWhereInput | Prisma.PicturesWhereInput[]
   OR?: Prisma.PicturesWhereInput[]
   NOT?: Prisma.PicturesWhereInput | Prisma.PicturesWhereInput[]
-  imageName?: Prisma.StringNullableFilter<"Pictures"> | string | null
-  path?: Prisma.StringNullableFilter<"Pictures"> | string | null
+  title?: Prisma.StringNullableFilter<"Pictures"> | string | null
+  href?: Prisma.StringNullableFilter<"Pictures"> | string | null
+  fileName?: Prisma.StringNullableFilter<"Pictures"> | string | null
   desc?: Prisma.StringNullableFilter<"Pictures"> | string | null
   userId?: Prisma.IntFilter<"Pictures"> | number
   deletedBy?: Prisma.IntFilter<"Pictures"> | number
@@ -307,8 +317,9 @@ export type PicturesWhereUniqueInput = Prisma.AtLeast<{
 
 export type PicturesOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  imageName?: Prisma.SortOrderInput | Prisma.SortOrder
-  path?: Prisma.SortOrderInput | Prisma.SortOrder
+  title?: Prisma.SortOrderInput | Prisma.SortOrder
+  href?: Prisma.SortOrderInput | Prisma.SortOrder
+  fileName?: Prisma.SortOrderInput | Prisma.SortOrder
   desc?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
@@ -328,8 +339,9 @@ export type PicturesScalarWhereWithAggregatesInput = {
   OR?: Prisma.PicturesScalarWhereWithAggregatesInput[]
   NOT?: Prisma.PicturesScalarWhereWithAggregatesInput | Prisma.PicturesScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Pictures"> | number
-  imageName?: Prisma.StringNullableWithAggregatesFilter<"Pictures"> | string | null
-  path?: Prisma.StringNullableWithAggregatesFilter<"Pictures"> | string | null
+  title?: Prisma.StringNullableWithAggregatesFilter<"Pictures"> | string | null
+  href?: Prisma.StringNullableWithAggregatesFilter<"Pictures"> | string | null
+  fileName?: Prisma.StringNullableWithAggregatesFilter<"Pictures"> | string | null
   desc?: Prisma.StringNullableWithAggregatesFilter<"Pictures"> | string | null
   userId?: Prisma.IntWithAggregatesFilter<"Pictures"> | number
   deletedBy?: Prisma.IntWithAggregatesFilter<"Pictures"> | number
@@ -340,8 +352,9 @@ export type PicturesScalarWhereWithAggregatesInput = {
 }
 
 export type PicturesCreateInput = {
-  imageName?: string | null
-  path?: string | null
+  title?: string | null
+  href?: string | null
+  fileName?: string | null
   desc?: string | null
   deletedBy?: number
   isDeleted?: boolean
@@ -355,8 +368,9 @@ export type PicturesCreateInput = {
 
 export type PicturesUncheckedCreateInput = {
   id?: number
-  imageName?: string | null
-  path?: string | null
+  title?: string | null
+  href?: string | null
+  fileName?: string | null
   desc?: string | null
   userId: number
   deletedBy?: number
@@ -369,8 +383,9 @@ export type PicturesUncheckedCreateInput = {
 }
 
 export type PicturesUpdateInput = {
-  imageName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  href?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -384,8 +399,9 @@ export type PicturesUpdateInput = {
 
 export type PicturesUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  imageName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  href?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
@@ -399,8 +415,9 @@ export type PicturesUncheckedUpdateInput = {
 
 export type PicturesCreateManyInput = {
   id?: number
-  imageName?: string | null
-  path?: string | null
+  title?: string | null
+  href?: string | null
+  fileName?: string | null
   desc?: string | null
   userId: number
   deletedBy?: number
@@ -411,8 +428,9 @@ export type PicturesCreateManyInput = {
 }
 
 export type PicturesUpdateManyMutationInput = {
-  imageName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  href?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -423,8 +441,9 @@ export type PicturesUpdateManyMutationInput = {
 
 export type PicturesUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  imageName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  href?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
@@ -447,8 +466,9 @@ export type PicturesOrderByRelevanceInput = {
 
 export type PicturesCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  imageName?: Prisma.SortOrder
-  path?: Prisma.SortOrder
+  title?: Prisma.SortOrder
+  href?: Prisma.SortOrder
+  fileName?: Prisma.SortOrder
   desc?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
@@ -466,8 +486,9 @@ export type PicturesAvgOrderByAggregateInput = {
 
 export type PicturesMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  imageName?: Prisma.SortOrder
-  path?: Prisma.SortOrder
+  title?: Prisma.SortOrder
+  href?: Prisma.SortOrder
+  fileName?: Prisma.SortOrder
   desc?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
@@ -479,8 +500,9 @@ export type PicturesMaxOrderByAggregateInput = {
 
 export type PicturesMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  imageName?: Prisma.SortOrder
-  path?: Prisma.SortOrder
+  title?: Prisma.SortOrder
+  href?: Prisma.SortOrder
+  fileName?: Prisma.SortOrder
   desc?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
@@ -577,8 +599,9 @@ export type PicturesUncheckedUpdateManyWithoutUsersNestedInput = {
 }
 
 export type PicturesCreateWithoutCommentsInput = {
-  imageName?: string | null
-  path?: string | null
+  title?: string | null
+  href?: string | null
+  fileName?: string | null
   desc?: string | null
   deletedBy?: number
   isDeleted?: boolean
@@ -591,8 +614,9 @@ export type PicturesCreateWithoutCommentsInput = {
 
 export type PicturesUncheckedCreateWithoutCommentsInput = {
   id?: number
-  imageName?: string | null
-  path?: string | null
+  title?: string | null
+  href?: string | null
+  fileName?: string | null
   desc?: string | null
   userId: number
   deletedBy?: number
@@ -620,8 +644,9 @@ export type PicturesUpdateToOneWithWhereWithoutCommentsInput = {
 }
 
 export type PicturesUpdateWithoutCommentsInput = {
-  imageName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  href?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -634,8 +659,9 @@ export type PicturesUpdateWithoutCommentsInput = {
 
 export type PicturesUncheckedUpdateWithoutCommentsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  imageName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  href?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
@@ -647,8 +673,9 @@ export type PicturesUncheckedUpdateWithoutCommentsInput = {
 }
 
 export type PicturesCreateWithoutUserPicturesInput = {
-  imageName?: string | null
-  path?: string | null
+  title?: string | null
+  href?: string | null
+  fileName?: string | null
   desc?: string | null
   deletedBy?: number
   isDeleted?: boolean
@@ -661,8 +688,9 @@ export type PicturesCreateWithoutUserPicturesInput = {
 
 export type PicturesUncheckedCreateWithoutUserPicturesInput = {
   id?: number
-  imageName?: string | null
-  path?: string | null
+  title?: string | null
+  href?: string | null
+  fileName?: string | null
   desc?: string | null
   userId: number
   deletedBy?: number
@@ -690,8 +718,9 @@ export type PicturesUpdateToOneWithWhereWithoutUserPicturesInput = {
 }
 
 export type PicturesUpdateWithoutUserPicturesInput = {
-  imageName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  href?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -704,8 +733,9 @@ export type PicturesUpdateWithoutUserPicturesInput = {
 
 export type PicturesUncheckedUpdateWithoutUserPicturesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  imageName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  href?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
@@ -717,8 +747,9 @@ export type PicturesUncheckedUpdateWithoutUserPicturesInput = {
 }
 
 export type PicturesCreateWithoutUsersInput = {
-  imageName?: string | null
-  path?: string | null
+  title?: string | null
+  href?: string | null
+  fileName?: string | null
   desc?: string | null
   deletedBy?: number
   isDeleted?: boolean
@@ -731,8 +762,9 @@ export type PicturesCreateWithoutUsersInput = {
 
 export type PicturesUncheckedCreateWithoutUsersInput = {
   id?: number
-  imageName?: string | null
-  path?: string | null
+  title?: string | null
+  href?: string | null
+  fileName?: string | null
   desc?: string | null
   deletedBy?: number
   isDeleted?: boolean
@@ -774,8 +806,9 @@ export type PicturesScalarWhereInput = {
   OR?: Prisma.PicturesScalarWhereInput[]
   NOT?: Prisma.PicturesScalarWhereInput | Prisma.PicturesScalarWhereInput[]
   id?: Prisma.IntFilter<"Pictures"> | number
-  imageName?: Prisma.StringNullableFilter<"Pictures"> | string | null
-  path?: Prisma.StringNullableFilter<"Pictures"> | string | null
+  title?: Prisma.StringNullableFilter<"Pictures"> | string | null
+  href?: Prisma.StringNullableFilter<"Pictures"> | string | null
+  fileName?: Prisma.StringNullableFilter<"Pictures"> | string | null
   desc?: Prisma.StringNullableFilter<"Pictures"> | string | null
   userId?: Prisma.IntFilter<"Pictures"> | number
   deletedBy?: Prisma.IntFilter<"Pictures"> | number
@@ -787,8 +820,9 @@ export type PicturesScalarWhereInput = {
 
 export type PicturesCreateManyUsersInput = {
   id?: number
-  imageName?: string | null
-  path?: string | null
+  title?: string | null
+  href?: string | null
+  fileName?: string | null
   desc?: string | null
   deletedBy?: number
   isDeleted?: boolean
@@ -798,8 +832,9 @@ export type PicturesCreateManyUsersInput = {
 }
 
 export type PicturesUpdateWithoutUsersInput = {
-  imageName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  href?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -812,8 +847,9 @@ export type PicturesUpdateWithoutUsersInput = {
 
 export type PicturesUncheckedUpdateWithoutUsersInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  imageName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  href?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -826,8 +862,9 @@ export type PicturesUncheckedUpdateWithoutUsersInput = {
 
 export type PicturesUncheckedUpdateManyWithoutUsersInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  imageName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  href?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desc?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -878,8 +915,9 @@ export type PicturesCountOutputTypeCountUserPicturesArgs<ExtArgs extends runtime
 
 export type PicturesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  imageName?: boolean
-  path?: boolean
+  title?: boolean
+  href?: boolean
+  fileName?: boolean
   desc?: boolean
   userId?: boolean
   deletedBy?: boolean
@@ -897,8 +935,9 @@ export type PicturesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
 
 export type PicturesSelectScalar = {
   id?: boolean
-  imageName?: boolean
-  path?: boolean
+  title?: boolean
+  href?: boolean
+  fileName?: boolean
   desc?: boolean
   userId?: boolean
   deletedBy?: boolean
@@ -908,7 +947,7 @@ export type PicturesSelectScalar = {
   updatedAt?: boolean
 }
 
-export type PicturesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "imageName" | "path" | "desc" | "userId" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["pictures"]>
+export type PicturesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "href" | "fileName" | "desc" | "userId" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["pictures"]>
 export type PicturesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Comments?: boolean | Prisma.Pictures$CommentsArgs<ExtArgs>
   Users?: boolean | Prisma.UsersDefaultArgs<ExtArgs>
@@ -925,8 +964,9 @@ export type $PicturesPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    imageName: string | null
-    path: string | null
+    title: string | null
+    href: string | null
+    fileName: string | null
     desc: string | null
     userId: number
     deletedBy: number
@@ -1307,8 +1347,9 @@ export interface Prisma__PicturesClient<T, Null = never, ExtArgs extends runtime
  */
 export interface PicturesFieldRefs {
   readonly id: Prisma.FieldRef<"Pictures", 'Int'>
-  readonly imageName: Prisma.FieldRef<"Pictures", 'String'>
-  readonly path: Prisma.FieldRef<"Pictures", 'String'>
+  readonly title: Prisma.FieldRef<"Pictures", 'String'>
+  readonly href: Prisma.FieldRef<"Pictures", 'String'>
+  readonly fileName: Prisma.FieldRef<"Pictures", 'String'>
   readonly desc: Prisma.FieldRef<"Pictures", 'String'>
   readonly userId: Prisma.FieldRef<"Pictures", 'Int'>
   readonly deletedBy: Prisma.FieldRef<"Pictures", 'Int'>

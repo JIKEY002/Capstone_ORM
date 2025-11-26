@@ -6,6 +6,8 @@ CREATE TABLE IF NOT EXISTS `Users` (
     `fullName` VARCHAR(255),
     `age` INT,
     `avatar` VARCHAR(255),
+    `facebookId` VARCHAR(255) UNIQUE,
+    `googleId` VARCHAR(255) UNIQUE,
     -- mặc định luôn luôn có
     -- mặc định luôn luôn có
     `deletedBy` INT NOT NULL DEFAULT 0,
@@ -16,8 +18,9 @@ CREATE TABLE IF NOT EXISTS `Users` (
 );
 CREATE TABLE IF NOT EXISTS `Pictures` (
     `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    `imageName` VARCHAR(255),
-    `path` VARCHAR(255),
+    `title` VARCHAR(255),
+    `href` VARCHAR(255),
+    `fileName` VARCHAR(255),
     `desc` VARCHAR(255),
     `userId` int NOT NULL,
     FOREIGN KEY (`userId`) REFERENCES `Users` (`id`),

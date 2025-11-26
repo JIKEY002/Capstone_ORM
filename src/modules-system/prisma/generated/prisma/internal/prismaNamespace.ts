@@ -734,8 +734,9 @@ export type CommentsScalarFieldEnum = (typeof CommentsScalarFieldEnum)[keyof typ
 
 export const PicturesScalarFieldEnum = {
   id: 'id',
-  imageName: 'imageName',
-  path: 'path',
+  title: 'title',
+  href: 'href',
+  fileName: 'fileName',
   desc: 'desc',
   userId: 'userId',
   deletedBy: 'deletedBy',
@@ -770,6 +771,8 @@ export const UsersScalarFieldEnum = {
   fullName: 'fullName',
   age: 'age',
   avatar: 'avatar',
+  facebookId: 'facebookId',
+  googleId: 'googleId',
   deletedBy: 'deletedBy',
   isDeleted: 'isDeleted',
   deletedAt: 'deletedAt',
@@ -804,8 +807,9 @@ export type CommentsOrderByRelevanceFieldEnum = (typeof CommentsOrderByRelevance
 
 
 export const PicturesOrderByRelevanceFieldEnum = {
-  imageName: 'imageName',
-  path: 'path',
+  title: 'title',
+  href: 'href',
+  fileName: 'fileName',
   desc: 'desc'
 } as const
 
@@ -816,7 +820,9 @@ export const UsersOrderByRelevanceFieldEnum = {
   email: 'email',
   password: 'password',
   fullName: 'fullName',
-  avatar: 'avatar'
+  avatar: 'avatar',
+  facebookId: 'facebookId',
+  googleId: 'googleId'
 } as const
 
 export type UsersOrderByRelevanceFieldEnum = (typeof UsersOrderByRelevanceFieldEnum)[keyof typeof UsersOrderByRelevanceFieldEnum]

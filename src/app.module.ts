@@ -10,10 +10,17 @@ import { PrismaModule } from './modules-system/prisma/prisma.module';
 import { TokenModule } from './modules-system/token/token.module';
 
 import { ProtectStrategy } from './common/guard/protect/protect.strategy';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), PrismaModule, AuthModule, TokenModule],
-  controllers: [AppController],
-  providers: [AppService, ProtectStrategy],
+    imports: [
+        ConfigModule.forRoot(),
+        PrismaModule,
+        AuthModule,
+        TokenModule,
+        UserModule,
+    ],
+    controllers: [AppController],
+    providers: [AppService, ProtectStrategy],
 })
 export class AppModule {}
