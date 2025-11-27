@@ -16,11 +16,12 @@ CREATE TABLE IF NOT EXISTS `Users` (
     `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-CREATE TABLE IF NOT EXISTS `Pictures` (
+CREATE TABLE IF NOT EXISTS `Posts` (
     `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(255),
     `href` VARCHAR(255),
     `fileName` VARCHAR(255),
+    `fileType` VARCHAR(255),
     `desc` VARCHAR(255),
     `userId` int NOT NULL,
     FOREIGN KEY (`userId`) REFERENCES `Users` (`id`),
@@ -32,13 +33,13 @@ CREATE TABLE IF NOT EXISTS `Pictures` (
     `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-CREATE TABLE IF NOT EXISTS `UserPictures` (
+CREATE TABLE IF NOT EXISTS `SavePosts` (
     `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     `userId` int NOT NULL,
-    `pictureId` int NOT NULL,
-    `creationDate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `postId` int NOT NULL,
+    `saveDate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (`userId`) REFERENCES `Users` (`id`),
-    FOREIGN KEY (`pictureId`) REFERENCES `Pictures` (`id`),
+    FOREIGN KEY (`postId`) REFERENCES `Posts` (`id`),
     -- mặc định luôn luôn có
     -- mặc định luôn luôn có
     `deletedBy` INT NOT NULL DEFAULT 0,
@@ -50,11 +51,11 @@ CREATE TABLE IF NOT EXISTS `UserPictures` (
 CREATE TABLE IF NOT EXISTS `Comments` (
     `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     `userId` int NOT NULL,
-    `pictureId` int NOT NULL,
+    `postId` int NOT NULL,
     `content` TEXT,
     `commentDate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (`userId`) REFERENCES `Users` (`id`),
-    FOREIGN KEY (`pictureId`) REFERENCES `Pictures` (`id`),
+    FOREIGN KEY (`postId`) REFERENCES `Posts` (`id`),
     -- mặc định luôn luôn có
     -- mặc định luôn luôn có
     `deletedBy` INT NOT NULL DEFAULT 0,

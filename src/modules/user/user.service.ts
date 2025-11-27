@@ -16,7 +16,7 @@ export class UserService {
         file: Express.Multer.File,
         createPostDto: CreatePostDto,
         req: express.Request,
-    ) {
+    ): Promise<any> {
         if (!req.user) {
             throw new UnauthorizedException('User not authenticated');
         }
@@ -25,12 +25,19 @@ export class UserService {
             throw new BadRequestException('File upload failed');
         }
 
-        const newPost = await this.prismaService.pictures.create({
+        const newPost = await this.prismaService.posts.create({
             data: {
                 title: createPostDto.title,
-                desc: createPostDto.desc,
+                href: createPostDto.href,
                 fileName: file.filename,
+                fileType: file['fileType'],
+                desc: createPostDto.desc,
                 userId: req.user['id'],
+            },
+            omit: {
+                deletedBy: true,
+                deletedAt: true,
+                isDeleted: true,
             },
         });
 

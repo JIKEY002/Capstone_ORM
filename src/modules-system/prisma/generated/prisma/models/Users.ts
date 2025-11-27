@@ -289,8 +289,8 @@ export type UsersWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Users"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Users"> | Date | string
   Comments?: Prisma.CommentsListRelationFilter
-  Pictures?: Prisma.PicturesListRelationFilter
-  UserPictures?: Prisma.UserPicturesListRelationFilter
+  Posts?: Prisma.PostsListRelationFilter
+  SavePosts?: Prisma.SavePostsListRelationFilter
 }
 
 export type UsersOrderByWithRelationInput = {
@@ -308,8 +308,8 @@ export type UsersOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   Comments?: Prisma.CommentsOrderByRelationAggregateInput
-  Pictures?: Prisma.PicturesOrderByRelationAggregateInput
-  UserPictures?: Prisma.UserPicturesOrderByRelationAggregateInput
+  Posts?: Prisma.PostsOrderByRelationAggregateInput
+  SavePosts?: Prisma.SavePostsOrderByRelationAggregateInput
   _relevance?: Prisma.UsersOrderByRelevanceInput
 }
 
@@ -331,8 +331,8 @@ export type UsersWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"Users"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Users"> | Date | string
   Comments?: Prisma.CommentsListRelationFilter
-  Pictures?: Prisma.PicturesListRelationFilter
-  UserPictures?: Prisma.UserPicturesListRelationFilter
+  Posts?: Prisma.PostsListRelationFilter
+  SavePosts?: Prisma.SavePostsListRelationFilter
 }, "id" | "email" | "facebookId" | "googleId">
 
 export type UsersOrderByWithAggregationInput = {
@@ -389,8 +389,8 @@ export type UsersCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   Comments?: Prisma.CommentsCreateNestedManyWithoutUsersInput
-  Pictures?: Prisma.PicturesCreateNestedManyWithoutUsersInput
-  UserPictures?: Prisma.UserPicturesCreateNestedManyWithoutUsersInput
+  Posts?: Prisma.PostsCreateNestedManyWithoutUsersInput
+  SavePosts?: Prisma.SavePostsCreateNestedManyWithoutUsersInput
 }
 
 export type UsersUncheckedCreateInput = {
@@ -408,8 +408,8 @@ export type UsersUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   Comments?: Prisma.CommentsUncheckedCreateNestedManyWithoutUsersInput
-  Pictures?: Prisma.PicturesUncheckedCreateNestedManyWithoutUsersInput
-  UserPictures?: Prisma.UserPicturesUncheckedCreateNestedManyWithoutUsersInput
+  Posts?: Prisma.PostsUncheckedCreateNestedManyWithoutUsersInput
+  SavePosts?: Prisma.SavePostsUncheckedCreateNestedManyWithoutUsersInput
 }
 
 export type UsersUpdateInput = {
@@ -426,8 +426,8 @@ export type UsersUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Comments?: Prisma.CommentsUpdateManyWithoutUsersNestedInput
-  Pictures?: Prisma.PicturesUpdateManyWithoutUsersNestedInput
-  UserPictures?: Prisma.UserPicturesUpdateManyWithoutUsersNestedInput
+  Posts?: Prisma.PostsUpdateManyWithoutUsersNestedInput
+  SavePosts?: Prisma.SavePostsUpdateManyWithoutUsersNestedInput
 }
 
 export type UsersUncheckedUpdateInput = {
@@ -445,8 +445,8 @@ export type UsersUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Comments?: Prisma.CommentsUncheckedUpdateManyWithoutUsersNestedInput
-  Pictures?: Prisma.PicturesUncheckedUpdateManyWithoutUsersNestedInput
-  UserPictures?: Prisma.UserPicturesUncheckedUpdateManyWithoutUsersNestedInput
+  Posts?: Prisma.PostsUncheckedUpdateManyWithoutUsersNestedInput
+  SavePosts?: Prisma.SavePostsUncheckedUpdateManyWithoutUsersNestedInput
 }
 
 export type UsersCreateManyInput = {
@@ -581,34 +581,6 @@ export type UsersUpdateOneRequiredWithoutCommentsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UsersUpdateToOneWithWhereWithoutCommentsInput, Prisma.UsersUpdateWithoutCommentsInput>, Prisma.UsersUncheckedUpdateWithoutCommentsInput>
 }
 
-export type UsersCreateNestedOneWithoutPicturesInput = {
-  create?: Prisma.XOR<Prisma.UsersCreateWithoutPicturesInput, Prisma.UsersUncheckedCreateWithoutPicturesInput>
-  connectOrCreate?: Prisma.UsersCreateOrConnectWithoutPicturesInput
-  connect?: Prisma.UsersWhereUniqueInput
-}
-
-export type UsersUpdateOneRequiredWithoutPicturesNestedInput = {
-  create?: Prisma.XOR<Prisma.UsersCreateWithoutPicturesInput, Prisma.UsersUncheckedCreateWithoutPicturesInput>
-  connectOrCreate?: Prisma.UsersCreateOrConnectWithoutPicturesInput
-  upsert?: Prisma.UsersUpsertWithoutPicturesInput
-  connect?: Prisma.UsersWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UsersUpdateToOneWithWhereWithoutPicturesInput, Prisma.UsersUpdateWithoutPicturesInput>, Prisma.UsersUncheckedUpdateWithoutPicturesInput>
-}
-
-export type UsersCreateNestedOneWithoutUserPicturesInput = {
-  create?: Prisma.XOR<Prisma.UsersCreateWithoutUserPicturesInput, Prisma.UsersUncheckedCreateWithoutUserPicturesInput>
-  connectOrCreate?: Prisma.UsersCreateOrConnectWithoutUserPicturesInput
-  connect?: Prisma.UsersWhereUniqueInput
-}
-
-export type UsersUpdateOneRequiredWithoutUserPicturesNestedInput = {
-  create?: Prisma.XOR<Prisma.UsersCreateWithoutUserPicturesInput, Prisma.UsersUncheckedCreateWithoutUserPicturesInput>
-  connectOrCreate?: Prisma.UsersCreateOrConnectWithoutUserPicturesInput
-  upsert?: Prisma.UsersUpsertWithoutUserPicturesInput
-  connect?: Prisma.UsersWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UsersUpdateToOneWithWhereWithoutUserPicturesInput, Prisma.UsersUpdateWithoutUserPicturesInput>, Prisma.UsersUncheckedUpdateWithoutUserPicturesInput>
-}
-
 export type StringFieldUpdateOperationsInput = {
   set?: string
 }
@@ -619,6 +591,34 @@ export type NullableIntFieldUpdateOperationsInput = {
   decrement?: number
   multiply?: number
   divide?: number
+}
+
+export type UsersCreateNestedOneWithoutPostsInput = {
+  create?: Prisma.XOR<Prisma.UsersCreateWithoutPostsInput, Prisma.UsersUncheckedCreateWithoutPostsInput>
+  connectOrCreate?: Prisma.UsersCreateOrConnectWithoutPostsInput
+  connect?: Prisma.UsersWhereUniqueInput
+}
+
+export type UsersUpdateOneRequiredWithoutPostsNestedInput = {
+  create?: Prisma.XOR<Prisma.UsersCreateWithoutPostsInput, Prisma.UsersUncheckedCreateWithoutPostsInput>
+  connectOrCreate?: Prisma.UsersCreateOrConnectWithoutPostsInput
+  upsert?: Prisma.UsersUpsertWithoutPostsInput
+  connect?: Prisma.UsersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UsersUpdateToOneWithWhereWithoutPostsInput, Prisma.UsersUpdateWithoutPostsInput>, Prisma.UsersUncheckedUpdateWithoutPostsInput>
+}
+
+export type UsersCreateNestedOneWithoutSavePostsInput = {
+  create?: Prisma.XOR<Prisma.UsersCreateWithoutSavePostsInput, Prisma.UsersUncheckedCreateWithoutSavePostsInput>
+  connectOrCreate?: Prisma.UsersCreateOrConnectWithoutSavePostsInput
+  connect?: Prisma.UsersWhereUniqueInput
+}
+
+export type UsersUpdateOneRequiredWithoutSavePostsNestedInput = {
+  create?: Prisma.XOR<Prisma.UsersCreateWithoutSavePostsInput, Prisma.UsersUncheckedCreateWithoutSavePostsInput>
+  connectOrCreate?: Prisma.UsersCreateOrConnectWithoutSavePostsInput
+  upsert?: Prisma.UsersUpsertWithoutSavePostsInput
+  connect?: Prisma.UsersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UsersUpdateToOneWithWhereWithoutSavePostsInput, Prisma.UsersUpdateWithoutSavePostsInput>, Prisma.UsersUncheckedUpdateWithoutSavePostsInput>
 }
 
 export type UsersCreateWithoutCommentsInput = {
@@ -634,8 +634,8 @@ export type UsersCreateWithoutCommentsInput = {
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  Pictures?: Prisma.PicturesCreateNestedManyWithoutUsersInput
-  UserPictures?: Prisma.UserPicturesCreateNestedManyWithoutUsersInput
+  Posts?: Prisma.PostsCreateNestedManyWithoutUsersInput
+  SavePosts?: Prisma.SavePostsCreateNestedManyWithoutUsersInput
 }
 
 export type UsersUncheckedCreateWithoutCommentsInput = {
@@ -652,8 +652,8 @@ export type UsersUncheckedCreateWithoutCommentsInput = {
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  Pictures?: Prisma.PicturesUncheckedCreateNestedManyWithoutUsersInput
-  UserPictures?: Prisma.UserPicturesUncheckedCreateNestedManyWithoutUsersInput
+  Posts?: Prisma.PostsUncheckedCreateNestedManyWithoutUsersInput
+  SavePosts?: Prisma.SavePostsUncheckedCreateNestedManyWithoutUsersInput
 }
 
 export type UsersCreateOrConnectWithoutCommentsInput = {
@@ -685,8 +685,8 @@ export type UsersUpdateWithoutCommentsInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Pictures?: Prisma.PicturesUpdateManyWithoutUsersNestedInput
-  UserPictures?: Prisma.UserPicturesUpdateManyWithoutUsersNestedInput
+  Posts?: Prisma.PostsUpdateManyWithoutUsersNestedInput
+  SavePosts?: Prisma.SavePostsUpdateManyWithoutUsersNestedInput
 }
 
 export type UsersUncheckedUpdateWithoutCommentsInput = {
@@ -703,11 +703,11 @@ export type UsersUncheckedUpdateWithoutCommentsInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Pictures?: Prisma.PicturesUncheckedUpdateManyWithoutUsersNestedInput
-  UserPictures?: Prisma.UserPicturesUncheckedUpdateManyWithoutUsersNestedInput
+  Posts?: Prisma.PostsUncheckedUpdateManyWithoutUsersNestedInput
+  SavePosts?: Prisma.SavePostsUncheckedUpdateManyWithoutUsersNestedInput
 }
 
-export type UsersCreateWithoutPicturesInput = {
+export type UsersCreateWithoutPostsInput = {
   email: string
   password?: string | null
   fullName?: string | null
@@ -721,10 +721,10 @@ export type UsersCreateWithoutPicturesInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   Comments?: Prisma.CommentsCreateNestedManyWithoutUsersInput
-  UserPictures?: Prisma.UserPicturesCreateNestedManyWithoutUsersInput
+  SavePosts?: Prisma.SavePostsCreateNestedManyWithoutUsersInput
 }
 
-export type UsersUncheckedCreateWithoutPicturesInput = {
+export type UsersUncheckedCreateWithoutPostsInput = {
   id?: number
   email: string
   password?: string | null
@@ -739,26 +739,26 @@ export type UsersUncheckedCreateWithoutPicturesInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   Comments?: Prisma.CommentsUncheckedCreateNestedManyWithoutUsersInput
-  UserPictures?: Prisma.UserPicturesUncheckedCreateNestedManyWithoutUsersInput
+  SavePosts?: Prisma.SavePostsUncheckedCreateNestedManyWithoutUsersInput
 }
 
-export type UsersCreateOrConnectWithoutPicturesInput = {
+export type UsersCreateOrConnectWithoutPostsInput = {
   where: Prisma.UsersWhereUniqueInput
-  create: Prisma.XOR<Prisma.UsersCreateWithoutPicturesInput, Prisma.UsersUncheckedCreateWithoutPicturesInput>
+  create: Prisma.XOR<Prisma.UsersCreateWithoutPostsInput, Prisma.UsersUncheckedCreateWithoutPostsInput>
 }
 
-export type UsersUpsertWithoutPicturesInput = {
-  update: Prisma.XOR<Prisma.UsersUpdateWithoutPicturesInput, Prisma.UsersUncheckedUpdateWithoutPicturesInput>
-  create: Prisma.XOR<Prisma.UsersCreateWithoutPicturesInput, Prisma.UsersUncheckedCreateWithoutPicturesInput>
+export type UsersUpsertWithoutPostsInput = {
+  update: Prisma.XOR<Prisma.UsersUpdateWithoutPostsInput, Prisma.UsersUncheckedUpdateWithoutPostsInput>
+  create: Prisma.XOR<Prisma.UsersCreateWithoutPostsInput, Prisma.UsersUncheckedCreateWithoutPostsInput>
   where?: Prisma.UsersWhereInput
 }
 
-export type UsersUpdateToOneWithWhereWithoutPicturesInput = {
+export type UsersUpdateToOneWithWhereWithoutPostsInput = {
   where?: Prisma.UsersWhereInput
-  data: Prisma.XOR<Prisma.UsersUpdateWithoutPicturesInput, Prisma.UsersUncheckedUpdateWithoutPicturesInput>
+  data: Prisma.XOR<Prisma.UsersUpdateWithoutPostsInput, Prisma.UsersUncheckedUpdateWithoutPostsInput>
 }
 
-export type UsersUpdateWithoutPicturesInput = {
+export type UsersUpdateWithoutPostsInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -772,10 +772,10 @@ export type UsersUpdateWithoutPicturesInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Comments?: Prisma.CommentsUpdateManyWithoutUsersNestedInput
-  UserPictures?: Prisma.UserPicturesUpdateManyWithoutUsersNestedInput
+  SavePosts?: Prisma.SavePostsUpdateManyWithoutUsersNestedInput
 }
 
-export type UsersUncheckedUpdateWithoutPicturesInput = {
+export type UsersUncheckedUpdateWithoutPostsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -790,10 +790,10 @@ export type UsersUncheckedUpdateWithoutPicturesInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Comments?: Prisma.CommentsUncheckedUpdateManyWithoutUsersNestedInput
-  UserPictures?: Prisma.UserPicturesUncheckedUpdateManyWithoutUsersNestedInput
+  SavePosts?: Prisma.SavePostsUncheckedUpdateManyWithoutUsersNestedInput
 }
 
-export type UsersCreateWithoutUserPicturesInput = {
+export type UsersCreateWithoutSavePostsInput = {
   email: string
   password?: string | null
   fullName?: string | null
@@ -807,10 +807,10 @@ export type UsersCreateWithoutUserPicturesInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   Comments?: Prisma.CommentsCreateNestedManyWithoutUsersInput
-  Pictures?: Prisma.PicturesCreateNestedManyWithoutUsersInput
+  Posts?: Prisma.PostsCreateNestedManyWithoutUsersInput
 }
 
-export type UsersUncheckedCreateWithoutUserPicturesInput = {
+export type UsersUncheckedCreateWithoutSavePostsInput = {
   id?: number
   email: string
   password?: string | null
@@ -825,26 +825,26 @@ export type UsersUncheckedCreateWithoutUserPicturesInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   Comments?: Prisma.CommentsUncheckedCreateNestedManyWithoutUsersInput
-  Pictures?: Prisma.PicturesUncheckedCreateNestedManyWithoutUsersInput
+  Posts?: Prisma.PostsUncheckedCreateNestedManyWithoutUsersInput
 }
 
-export type UsersCreateOrConnectWithoutUserPicturesInput = {
+export type UsersCreateOrConnectWithoutSavePostsInput = {
   where: Prisma.UsersWhereUniqueInput
-  create: Prisma.XOR<Prisma.UsersCreateWithoutUserPicturesInput, Prisma.UsersUncheckedCreateWithoutUserPicturesInput>
+  create: Prisma.XOR<Prisma.UsersCreateWithoutSavePostsInput, Prisma.UsersUncheckedCreateWithoutSavePostsInput>
 }
 
-export type UsersUpsertWithoutUserPicturesInput = {
-  update: Prisma.XOR<Prisma.UsersUpdateWithoutUserPicturesInput, Prisma.UsersUncheckedUpdateWithoutUserPicturesInput>
-  create: Prisma.XOR<Prisma.UsersCreateWithoutUserPicturesInput, Prisma.UsersUncheckedCreateWithoutUserPicturesInput>
+export type UsersUpsertWithoutSavePostsInput = {
+  update: Prisma.XOR<Prisma.UsersUpdateWithoutSavePostsInput, Prisma.UsersUncheckedUpdateWithoutSavePostsInput>
+  create: Prisma.XOR<Prisma.UsersCreateWithoutSavePostsInput, Prisma.UsersUncheckedCreateWithoutSavePostsInput>
   where?: Prisma.UsersWhereInput
 }
 
-export type UsersUpdateToOneWithWhereWithoutUserPicturesInput = {
+export type UsersUpdateToOneWithWhereWithoutSavePostsInput = {
   where?: Prisma.UsersWhereInput
-  data: Prisma.XOR<Prisma.UsersUpdateWithoutUserPicturesInput, Prisma.UsersUncheckedUpdateWithoutUserPicturesInput>
+  data: Prisma.XOR<Prisma.UsersUpdateWithoutSavePostsInput, Prisma.UsersUncheckedUpdateWithoutSavePostsInput>
 }
 
-export type UsersUpdateWithoutUserPicturesInput = {
+export type UsersUpdateWithoutSavePostsInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   fullName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -858,10 +858,10 @@ export type UsersUpdateWithoutUserPicturesInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Comments?: Prisma.CommentsUpdateManyWithoutUsersNestedInput
-  Pictures?: Prisma.PicturesUpdateManyWithoutUsersNestedInput
+  Posts?: Prisma.PostsUpdateManyWithoutUsersNestedInput
 }
 
-export type UsersUncheckedUpdateWithoutUserPicturesInput = {
+export type UsersUncheckedUpdateWithoutSavePostsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -876,7 +876,7 @@ export type UsersUncheckedUpdateWithoutUserPicturesInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Comments?: Prisma.CommentsUncheckedUpdateManyWithoutUsersNestedInput
-  Pictures?: Prisma.PicturesUncheckedUpdateManyWithoutUsersNestedInput
+  Posts?: Prisma.PostsUncheckedUpdateManyWithoutUsersNestedInput
 }
 
 
@@ -886,14 +886,14 @@ export type UsersUncheckedUpdateWithoutUserPicturesInput = {
 
 export type UsersCountOutputType = {
   Comments: number
-  Pictures: number
-  UserPictures: number
+  Posts: number
+  SavePosts: number
 }
 
 export type UsersCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Comments?: boolean | UsersCountOutputTypeCountCommentsArgs
-  Pictures?: boolean | UsersCountOutputTypeCountPicturesArgs
-  UserPictures?: boolean | UsersCountOutputTypeCountUserPicturesArgs
+  Posts?: boolean | UsersCountOutputTypeCountPostsArgs
+  SavePosts?: boolean | UsersCountOutputTypeCountSavePostsArgs
 }
 
 /**
@@ -916,15 +916,15 @@ export type UsersCountOutputTypeCountCommentsArgs<ExtArgs extends runtime.Types.
 /**
  * UsersCountOutputType without action
  */
-export type UsersCountOutputTypeCountPicturesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.PicturesWhereInput
+export type UsersCountOutputTypeCountPostsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PostsWhereInput
 }
 
 /**
  * UsersCountOutputType without action
  */
-export type UsersCountOutputTypeCountUserPicturesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.UserPicturesWhereInput
+export type UsersCountOutputTypeCountSavePostsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SavePostsWhereInput
 }
 
 
@@ -943,8 +943,8 @@ export type UsersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   createdAt?: boolean
   updatedAt?: boolean
   Comments?: boolean | Prisma.Users$CommentsArgs<ExtArgs>
-  Pictures?: boolean | Prisma.Users$PicturesArgs<ExtArgs>
-  UserPictures?: boolean | Prisma.Users$UserPicturesArgs<ExtArgs>
+  Posts?: boolean | Prisma.Users$PostsArgs<ExtArgs>
+  SavePosts?: boolean | Prisma.Users$SavePostsArgs<ExtArgs>
   _count?: boolean | Prisma.UsersCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["users"]>
 
@@ -969,8 +969,8 @@ export type UsersSelectScalar = {
 export type UsersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password" | "fullName" | "age" | "avatar" | "facebookId" | "googleId" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["users"]>
 export type UsersInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Comments?: boolean | Prisma.Users$CommentsArgs<ExtArgs>
-  Pictures?: boolean | Prisma.Users$PicturesArgs<ExtArgs>
-  UserPictures?: boolean | Prisma.Users$UserPicturesArgs<ExtArgs>
+  Posts?: boolean | Prisma.Users$PostsArgs<ExtArgs>
+  SavePosts?: boolean | Prisma.Users$SavePostsArgs<ExtArgs>
   _count?: boolean | Prisma.UsersCountOutputTypeDefaultArgs<ExtArgs>
 }
 
@@ -978,8 +978,8 @@ export type $UsersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   name: "Users"
   objects: {
     Comments: Prisma.$CommentsPayload<ExtArgs>[]
-    Pictures: Prisma.$PicturesPayload<ExtArgs>[]
-    UserPictures: Prisma.$UserPicturesPayload<ExtArgs>[]
+    Posts: Prisma.$PostsPayload<ExtArgs>[]
+    SavePosts: Prisma.$SavePostsPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1336,8 +1336,8 @@ readonly fields: UsersFieldRefs;
 export interface Prisma__UsersClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   Comments<T extends Prisma.Users$CommentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Users$CommentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CommentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  Pictures<T extends Prisma.Users$PicturesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Users$PicturesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PicturesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  UserPictures<T extends Prisma.Users$UserPicturesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Users$UserPicturesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserPicturesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  Posts<T extends Prisma.Users$PostsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Users$PostsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PostsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  SavePosts<T extends Prisma.Users$SavePostsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Users$SavePostsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SavePostsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1747,51 +1747,51 @@ export type Users$CommentsArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
- * Users.Pictures
+ * Users.Posts
  */
-export type Users$PicturesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Users$PostsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Pictures
+   * Select specific fields to fetch from the Posts
    */
-  select?: Prisma.PicturesSelect<ExtArgs> | null
+  select?: Prisma.PostsSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Pictures
+   * Omit specific fields from the Posts
    */
-  omit?: Prisma.PicturesOmit<ExtArgs> | null
+  omit?: Prisma.PostsOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PicturesInclude<ExtArgs> | null
-  where?: Prisma.PicturesWhereInput
-  orderBy?: Prisma.PicturesOrderByWithRelationInput | Prisma.PicturesOrderByWithRelationInput[]
-  cursor?: Prisma.PicturesWhereUniqueInput
+  include?: Prisma.PostsInclude<ExtArgs> | null
+  where?: Prisma.PostsWhereInput
+  orderBy?: Prisma.PostsOrderByWithRelationInput | Prisma.PostsOrderByWithRelationInput[]
+  cursor?: Prisma.PostsWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.PicturesScalarFieldEnum | Prisma.PicturesScalarFieldEnum[]
+  distinct?: Prisma.PostsScalarFieldEnum | Prisma.PostsScalarFieldEnum[]
 }
 
 /**
- * Users.UserPictures
+ * Users.SavePosts
  */
-export type Users$UserPicturesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Users$SavePostsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the UserPictures
+   * Select specific fields to fetch from the SavePosts
    */
-  select?: Prisma.UserPicturesSelect<ExtArgs> | null
+  select?: Prisma.SavePostsSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the UserPictures
+   * Omit specific fields from the SavePosts
    */
-  omit?: Prisma.UserPicturesOmit<ExtArgs> | null
+  omit?: Prisma.SavePostsOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.UserPicturesInclude<ExtArgs> | null
-  where?: Prisma.UserPicturesWhereInput
-  orderBy?: Prisma.UserPicturesOrderByWithRelationInput | Prisma.UserPicturesOrderByWithRelationInput[]
-  cursor?: Prisma.UserPicturesWhereUniqueInput
+  include?: Prisma.SavePostsInclude<ExtArgs> | null
+  where?: Prisma.SavePostsWhereInput
+  orderBy?: Prisma.SavePostsOrderByWithRelationInput | Prisma.SavePostsOrderByWithRelationInput[]
+  cursor?: Prisma.SavePostsWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.UserPicturesScalarFieldEnum | Prisma.UserPicturesScalarFieldEnum[]
+  distinct?: Prisma.SavePostsScalarFieldEnum | Prisma.SavePostsScalarFieldEnum[]
 }
 
 /**

@@ -33,6 +33,9 @@ export class AuthService {
             },
             omit: {
                 password: true,
+                deletedBy: true,
+                deletedAt: true,
+                isDeleted: true,
             },
         });
 

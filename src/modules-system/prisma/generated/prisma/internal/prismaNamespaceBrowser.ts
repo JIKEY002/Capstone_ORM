@@ -50,9 +50,9 @@ export const AnyNull = runtime.objectEnumValues.instances.AnyNull
 
 export const ModelName = {
   Comments: 'Comments',
-  Pictures: 'Pictures',
-  UserPictures: 'UserPictures',
-  Users: 'Users'
+  Users: 'Users',
+  Posts: 'Posts',
+  SavePosts: 'SavePosts'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -74,7 +74,7 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 export const CommentsScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  pictureId: 'pictureId',
+  postId: 'postId',
   content: 'content',
   commentDate: 'commentDate',
   deletedBy: 'deletedBy',
@@ -85,38 +85,6 @@ export const CommentsScalarFieldEnum = {
 } as const
 
 export type CommentsScalarFieldEnum = (typeof CommentsScalarFieldEnum)[keyof typeof CommentsScalarFieldEnum]
-
-
-export const PicturesScalarFieldEnum = {
-  id: 'id',
-  title: 'title',
-  href: 'href',
-  fileName: 'fileName',
-  desc: 'desc',
-  userId: 'userId',
-  deletedBy: 'deletedBy',
-  isDeleted: 'isDeleted',
-  deletedAt: 'deletedAt',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type PicturesScalarFieldEnum = (typeof PicturesScalarFieldEnum)[keyof typeof PicturesScalarFieldEnum]
-
-
-export const UserPicturesScalarFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  pictureId: 'pictureId',
-  creationDate: 'creationDate',
-  deletedBy: 'deletedBy',
-  isDeleted: 'isDeleted',
-  deletedAt: 'deletedAt',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type UserPicturesScalarFieldEnum = (typeof UserPicturesScalarFieldEnum)[keyof typeof UserPicturesScalarFieldEnum]
 
 
 export const UsersScalarFieldEnum = {
@@ -136,6 +104,39 @@ export const UsersScalarFieldEnum = {
 } as const
 
 export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
+
+
+export const PostsScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  href: 'href',
+  fileName: 'fileName',
+  fileType: 'fileType',
+  desc: 'desc',
+  userId: 'userId',
+  deletedBy: 'deletedBy',
+  isDeleted: 'isDeleted',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PostsScalarFieldEnum = (typeof PostsScalarFieldEnum)[keyof typeof PostsScalarFieldEnum]
+
+
+export const SavePostsScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  postId: 'postId',
+  saveDate: 'saveDate',
+  deletedBy: 'deletedBy',
+  isDeleted: 'isDeleted',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SavePostsScalarFieldEnum = (typeof SavePostsScalarFieldEnum)[keyof typeof SavePostsScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -161,16 +162,6 @@ export const CommentsOrderByRelevanceFieldEnum = {
 export type CommentsOrderByRelevanceFieldEnum = (typeof CommentsOrderByRelevanceFieldEnum)[keyof typeof CommentsOrderByRelevanceFieldEnum]
 
 
-export const PicturesOrderByRelevanceFieldEnum = {
-  title: 'title',
-  href: 'href',
-  fileName: 'fileName',
-  desc: 'desc'
-} as const
-
-export type PicturesOrderByRelevanceFieldEnum = (typeof PicturesOrderByRelevanceFieldEnum)[keyof typeof PicturesOrderByRelevanceFieldEnum]
-
-
 export const UsersOrderByRelevanceFieldEnum = {
   email: 'email',
   password: 'password',
@@ -181,4 +172,15 @@ export const UsersOrderByRelevanceFieldEnum = {
 } as const
 
 export type UsersOrderByRelevanceFieldEnum = (typeof UsersOrderByRelevanceFieldEnum)[keyof typeof UsersOrderByRelevanceFieldEnum]
+
+
+export const PostsOrderByRelevanceFieldEnum = {
+  title: 'title',
+  href: 'href',
+  fileName: 'fileName',
+  fileType: 'fileType',
+  desc: 'desc'
+} as const
+
+export type PostsOrderByRelevanceFieldEnum = (typeof PostsOrderByRelevanceFieldEnum)[keyof typeof PostsOrderByRelevanceFieldEnum]
 

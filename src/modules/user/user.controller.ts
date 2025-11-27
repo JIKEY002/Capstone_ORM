@@ -23,7 +23,7 @@ export class UserController {
 
     @UseGuards(AuthGuard('protect'))
     @Post('createPost')
-    @UseInterceptors(FileInterceptor('image', createPostMulterOptions))
+    @UseInterceptors(FileInterceptor('file', createPostMulterOptions))
     createPost(
         @UploadedFile() file: Express.Multer.File,
         @Body()

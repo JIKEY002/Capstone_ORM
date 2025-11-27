@@ -48,17 +48,17 @@ path.join(process.cwd(), "src/modules-system/prisma/generated/prisma/query_engin
  */
 export type Comments = Prisma.CommentsModel
 /**
- * Model Pictures
- * 
- */
-export type Pictures = Prisma.PicturesModel
-/**
- * Model UserPictures
- * 
- */
-export type UserPictures = Prisma.UserPicturesModel
-/**
  * Model Users
  * 
  */
 export type Users = Prisma.UsersModel
+/**
+ * Model Posts
+ * 
+ */
+export type Posts = Prisma.PostsModel
+/**
+ * Model SavePosts
+ * 
+ */
+export type SavePosts = Prisma.SavePostsModel

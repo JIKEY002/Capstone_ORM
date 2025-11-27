@@ -11,7 +11,7 @@ export class PostService {
     async findAll(queryDto: QueryDto): Promise<any> {
         const { page, pageSize, filters, index } = buildQuery(queryDto);
 
-        const postsPromise = this.prismaService.pictures.findMany({
+        const postsPromise = this.prismaService.posts.findMany({
             where: filters,
             skip: index,
             take: pageSize,
@@ -23,7 +23,7 @@ export class PostService {
             orderBy: { createdAt: 'desc' },
         });
 
-        const countPromise = this.prismaService.pictures.count({
+        const countPromise = this.prismaService.posts.count({
             where: filters,
         });
 

@@ -9,7 +9,7 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/Comments.js'
-export type * from './models/Pictures.js'
-export type * from './models/UserPictures.js'
 export type * from './models/Users.js'
+export type * from './models/Posts.js'
+export type * from './models/SavePosts.js'
 export type * from './commonInputTypes.js'
