@@ -24,5 +24,9 @@ export class RegisterDto {
 
     @IsNotEmpty()
     @IsString()
-    fullName: string;
+    fistname: string;
+
+    @IsNotEmpty()
+    @IsString()
+    name: string;
 }

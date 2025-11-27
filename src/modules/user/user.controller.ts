@@ -1,35 +1,38 @@
-import {
-    Controller,
-    Post,
-    Body,
-    UseInterceptors,
-    UploadedFile,
-    UseGuards,
-    Request,
-} from '@nestjs/common';
-import { FileInterceptor } from '@nestjs/platform-express';
+import { Controller, UseGuards, Request, Get, Put, Body } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import * as express from 'express';
 
-import { CreatePostDto } from './dto/createPost.dto';
-
 import { UserService } from './user.service';
-
-import { createPostMulterOptions } from 'src/common/multer/createPost.multer';
+import { UpdateInfoDto } from './dto/updateInfo.dto';
 
 @Controller('user')
 export class UserController {
     constructor(private readonly userService: UserService) {}
 
     @UseGuards(AuthGuard('protect'))
-    @Post('createPost')
-    @UseInterceptors(FileInterceptor('file', createPostMulterOptions))
-    createPost(
-        @UploadedFile() file: Express.Multer.File,
-        @Body()
-        createPostDto: CreatePostDto,
+    @Get('info')
+    info(@Request() req: express.Request) {
+        return this.userService.info(req);
+    }
+
+    @UseGuards(AuthGuard('protect'))
+    @Get('posts-save')
+    postSave(@Request() req: express.Request) {
+        return this.userService.postSave(req);
+    }
+
+    @UseGuards(AuthGuard('protect'))
+    @Get('posts-list')
+    postList(@Request() req: express.Request) {
+        return this.userService.postList(req);
+    }
+
+    @UseGuards(AuthGuard('protect'))
+    @Put('info')
+    updateInfo(
+        @Body() updateInfoDto: UpdateInfoDto,
         @Request() req: express.Request,
     ) {
-        return this.userService.createPost(file, createPostDto, req);
+        return this.userService.updateInfo(updateInfoDto, req);
     }
 }
