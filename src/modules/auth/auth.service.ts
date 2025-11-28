@@ -33,6 +33,7 @@ export class AuthService {
                 fullName: fullName,
                 email: registerDto.email,
                 password: hashedPassword,
+                age: registerDto.age,
             },
             omit: {
                 password: true,
