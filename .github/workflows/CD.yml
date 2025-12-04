@@ -12,8 +12,9 @@ jobs:
 
         steps:
             - name: Stop containers
-              run: docker stop con-be-capstone-orm
-
+              run: |
+                  docker stop con-be-capstone-orm || 
+                  docker compose up -d
             - name: Remove containers
               run: docker rm con-be-capstone-orm
 
