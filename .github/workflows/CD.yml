@@ -1,0 +1,24 @@
+name: CD
+
+on:
+    workflow_run:
+        workflows: ['CI']
+        types:
+            - completed
+
+jobs:
+    deploy:
+        runs-on: capstone-orm
+
+        steps:
+            - name: Stop containers
+              run: docker stop con-be-capstone-orm
+
+            - name: Remove containers
+              run: docker rm con-be-capstone-orm
+
+            - name: Remove images
+              run: docker rmi jikey002/capstone-orm:latest
+
+            - name: Pull new image
+              run: docker compose up -d
