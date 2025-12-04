@@ -1,0 +1,88 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/modules-system/prisma/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Comments {
+  id          Int       @id @default(autoincrement())
+  userId      Int
+  postId      Int
+  content     String?   @db.Text
+  commentDate DateTime  @default(now()) @db.Timestamp(0)
+  deletedBy   Int       @default(0)
+  isDeleted   Boolean   @default(false)
+  deletedAt   DateTime? @db.Timestamp(0)
+  createdAt   DateTime  @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime  @default(now()) @db.Timestamp(0)
+  Users       Users     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Comments_ibfk_1")
+  Posts       Posts     @relation(fields: [postId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Comments_ibfk_2")
+
+  @@index([postId], map: "postId")
+  @@index([userId], map: "userId")
+}
+
+model Posts {
+  id        Int         @id @default(autoincrement())
+  title     String?     @db.VarChar(255)
+  href      String?     @db.VarChar(255)
+  fileName  String?     @db.VarChar(255)
+  fileType  String?     @db.VarChar(255)
+  desc      String?     @db.VarChar(255)
+  userId    Int
+  deletedBy Int         @default(0)
+  isDeleted Boolean     @default(false)
+  deletedAt DateTime?   @db.Timestamp(0)
+  createdAt DateTime    @default(now()) @db.Timestamp(0)
+  updatedAt DateTime    @default(now()) @db.Timestamp(0)
+  Comments  Comments[]
+  Users     Users       @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Posts_ibfk_1")
+  SavePosts SavePosts[]
+
+  @@index([userId], map: "userId")
+}
+
+model SavePosts {
+  id        Int       @id @default(autoincrement())
+  userId    Int
+  postId    Int
+  saveDate  DateTime  @default(now()) @db.Timestamp(0)
+  deletedBy Int       @default(0)
+  isDeleted Boolean   @default(false)
+  deletedAt DateTime? @db.Timestamp(0)
+  createdAt DateTime  @default(now()) @db.Timestamp(0)
+  updatedAt DateTime  @default(now()) @db.Timestamp(0)
+  Users     Users     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "SavePosts_ibfk_1")
+  Posts     Posts     @relation(fields: [postId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "SavePosts_ibfk_2")
+
+  @@index([postId], map: "postId")
+  @@index([userId], map: "userId")
+}
+
+model Users {
+  id         Int         @id @default(autoincrement())
+  email      String      @unique(map: "email") @db.VarChar(255)
+  password   String?     @db.VarChar(255)
+  fistname   String?     @db.VarChar(255)
+  name       String?     @db.VarChar(255)
+  fullName   String?     @db.VarChar(255)
+  introduce  String?     @db.VarChar(255)
+  username   String?     @unique(map: "username") @db.VarChar(255)
+  website    String?     @db.VarChar(255)
+  age        Int?
+  avatar     String?     @db.VarChar(255)
+  facebookId String?     @unique(map: "facebookId") @db.VarChar(255)
+  googleId   String?     @unique(map: "googleId") @db.VarChar(255)
+  deletedBy  Int         @default(0)
+  isDeleted  Boolean     @default(false)
+  deletedAt  DateTime?   @db.Timestamp(0)
+  createdAt  DateTime    @default(now()) @db.Timestamp(0)
+  updatedAt  DateTime    @default(now()) @db.Timestamp(0)
+  Comments   Comments[]
+  Posts      Posts[]
+  SavePosts  SavePosts[]
+}
